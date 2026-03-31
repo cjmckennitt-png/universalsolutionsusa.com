@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pay Invoice — Universal Solutions USA</title>
+<meta name="description" content="Securely pay your Universal Solutions USA invoice online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/images/logo.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0a1f5c;--navy-mid:#1a3580;--navy-light:#2550b8;
+  --blue:#0ea5e9;--blue-soft:#e0f2fe;--blue-mid:#38bdf8;
+  --white:#ffffff;--off-white:#f8fafc;--gray:#e2e8f0;
+  --text:#0f172a;--text-sec:#475569;--text-muted:#94a3b8;
+  --shadow-lg:0 20px 48px rgba(10,31,92,.14);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--off-white);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;height:72px;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--gray);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,60px)}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-brand img{height:44px;width:auto}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{font-size:14px;font-weight:500;color:var(--text-sec);text-decoration:none;padding:7px 16px;border-radius:6px;transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--navy);background:var(--blue-soft)}
+.nav-links a.nav-cta{background:var(--navy);color:var(--white);padding:8px 20px}
+.nav-links a.nav-cta:hover,.nav-links a.nav-cta.active{background:var(--navy-mid)}
+
+/* MAIN */
+.pay-page{padding-top:72px;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-bottom:60px}
+.pay-container{width:100%;max-width:680px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,4vw,40px)}
+
+.pay-logo{text-align:center;margin-bottom:32px}
+.pay-logo img{height:72px;width:auto}
+
+.pay-card{background:var(--white);border:1px solid var(--gray);border-radius:24px;padding:clamp(36px,5vw,56px);text-align:center;box-shadow:var(--shadow-lg)}
+.pay-eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--blue);margin-bottom:12px}
+.pay-card h1{font-size:clamp(26px,4vw,36px);font-weight:900;color:var(--navy);margin-bottom:14px;letter-spacing:-.5px}
+.pay-card p{font-size:16px;color:var(--text-sec);line-height:1.75;max-width:460px;margin:0 auto 40px}
+
+/* BIG BUTTON */
+.pay-now-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:22px 64px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--navy-light));color:var(--white);font-size:20px;font-weight:800;text-decoration:none;letter-spacing:.2px;transition:all .25s;box-shadow:0 8px 32px rgba(10,31,92,.28);margin-bottom:24px}
+.pay-now-btn:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(10,31,92,.35)}
+.pay-now-btn svg{flex-shrink:0}
+.pay-support{font-size:14px;color:var(--text-muted)}
+.pay-support a{color:var(--text-sec);text-decoration:none;font-weight:500}
+.pay-support a:hover{color:var(--navy)}
+
+/* TRUST ITEMS */
+.pay-trust{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:36px;padding-top:36px;border-top:1px solid var(--gray)}
+.pay-trust-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted);font-weight:500}
+.pay-trust-item svg{color:var(--navy)}
+
+footer{background:var(--navy);padding:40px clamp(20px,5vw,60px) 28px;margin-top:auto}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-brand img{height:48px;margin-bottom:14px;display:block}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;max-width:260px}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:rgba(255,255,255,.4);margin-bottom:16px}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,.65);text-decoration:none;padding:4px 0;transition:color .2s}
+.footer-col a:hover{color:var(--white)}
+.footer-bottom{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,.35);flex-wrap:wrap;gap:8px}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){nav{padding:0 16px;height:60px}.nav-brand img{height:36px}.nav-links a:not(.nav-cta){display:none}.footer-inner{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}.pay-trust{gap:16px}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-brand"><img src="/images/logo.png" alt="Universal Solutions USA"></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/products">Products</a>
+    <a href="/testimonials">Testimonials</a>
+    <a href="/payments" class="nav-cta active">Pay Invoice</a>
+  </div>
+</nav>
+
+<div class="pay-page">
+  <div class="pay-container">
+    <div class="pay-logo reveal">
+      <img src="/images/logo.png" alt="Universal Solutions USA">
+    </div>
+
+    <div class="pay-card reveal">
+      <div class="pay-eyebrow">Secure Payment Portal</div>
+      <h1>Pay Your Invoice</h1>
+      <p>Click below to pay your Universal Solutions USA invoice securely online through our trusted payment portal.</p>
+
+      <a href="https://pl.mxmerchant.com/mxcustomer/d/e5ad67d1-143d-40ab-84a2-cd9a49a46a75/v3" target="_blank" rel="noopener" class="pay-now-btn">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+        Pay Invoice Now
+      </a>
+
+      <div class="pay-support">Questions about your invoice? Visit <a href="https://universalsolutionsusa.com" target="_blank">universalsolutionsusa.com</a></div>
+
+      <div class="pay-trust">
+        <div class="pay-trust-item">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          Secure &amp; Encrypted
+        </div>
+        <div class="pay-trust-item">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          BBB Accredited
+        </div>
+        <div class="pay-trust-item">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+          All Major Cards Accepted
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><img src="/images/logo.png" alt="Universal Solutions USA"><p>Setting the standard in maintenance supply. Serving manufacturing, industrial, and commercial sectors nationwide.</p></div>
+    <div class="footer-col"><h4>Products</h4><a href="/products">Max 20 — Universal Cleaner</a><a href="/products">Max 25 — Universal Degreaser</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/">Home</a><a href="/testimonials">Testimonials</a><a href="/payments">Pay Invoice</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="https://universalsolutionsusa.com" target="_blank">universalsolutionsusa.com</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Universal Solutions USA. All Rights Reserved.</span>
+    <span>BBB Accredited · Woman-Owned · Made in USA</span>
+  </div>
+</footer>
+<script>
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
