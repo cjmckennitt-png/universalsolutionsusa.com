@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Giving Back — Universal Solutions USA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/images/us-logo.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--navy:#0a1f5c;--white:#ffffff;--off-white:#f5f5f5;--gray:#e0e0e0;--gray-mid:#999;--blue:#0ea5e9;--green:#16a34a;--text:#0a0a0a;--text-sec:#444}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;height:70px;background:var(--white);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,80px);border-bottom:1px solid var(--border)}
+.nav-brand{display:flex;align-items:center;text-decoration:none}
+.nav-brand img{height:48px;width:auto}
+.nav-links{display:flex;gap:0;align-items:center}
+.nav-links a{font-size:13px;font-weight:500;color:var(--text-sec);text-decoration:none;padding:8px 18px;letter-spacing:.5px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--navy)}
+.nav-links a.nav-cta{background:var(--blue);color:var(--white);padding:9px 24px;font-weight:600;margin-left:12px;letter-spacing:.3px;text-transform:none;font-size:14px}
+.nav-links a.nav-cta:hover{background:var(--blue-dark)}
+
+.page-header{padding-top:70px;background:var(--navy)}
+.page-header-inner{max-width:1300px;margin:0 auto;padding:80px clamp(20px,5vw,80px)}
+.page-label{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.page-label::before{content:'';width:24px;height:2px;background:var(--blue)}
+.page-header h1{font-size:clamp(40px,5vw,72px);font-weight:900;color:var(--white);letter-spacing:-2px;line-height:1}
+.page-header p{font-size:18px;color:var(--text-sec);margin-top:20px;max-width:600px;line-height:1.7}
+
+section{padding:80px clamp(20px,5vw,80px)}
+.section-inner{max-width:1300px;margin:0 auto}
+.section-label{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.section-label::before{content:'';width:24px;height:2px;background:var(--blue)}
+
+/* HERO COMMITMENT */
+.commitment{background:var(--white)}
+.commitment-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:48px}
+.commitment-text h2{font-size:clamp(32px,4vw,52px);font-weight:900;letter-spacing:-1.5px;line-height:1.05;margin-bottom:24px}
+.commitment-text p{font-size:16px;color:var(--text-sec);line-height:1.8;margin-bottom:16px}
+.one-percent{background:var(--navy);padding:48px;text-align:center;color:var(--white)}
+.one-percent .big{font-size:96px;font-weight:900;color:var(--blue);letter-spacing:-4px;line-height:1}
+.one-percent .big-sub{font-size:16px;font-weight:700;color:rgba(255,255,255,.7);margin-top:8px;text-transform:uppercase;letter-spacing:2px}
+.one-percent p{font-size:14px;color:var(--text-sec);margin-top:20px;line-height:1.6}
+
+/* INITIATIVES */
+.initiatives{background:var(--light-blue)}
+.initiatives-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px}
+.initiative-card{background:var(--white);padding:40px;border:1px solid var(--gray)}
+.initiative-icon{font-size:32px;margin-bottom:20px}
+.initiative-title{font-size:18px;font-weight:800;color:var(--black);letter-spacing:-.5px;margin-bottom:10px}
+.initiative-desc{font-size:14px;color:var(--text-sec);line-height:1.7}
+
+/* HOW IT WORKS */
+.how{background:var(--navy);padding:80px clamp(20px,5vw,80px)}
+.how-inner{max-width:1300px;margin:0 auto}
+.how h2{font-size:clamp(28px,3.5vw,48px);font-weight:900;color:var(--white);letter-spacing:-1.5px;margin-bottom:48px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(255,255,255,.1)}
+.step{padding:40px;border-right:1px solid rgba(255,255,255,.1)}
+.step:last-child{border-right:none}
+.step-num{font-size:11px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:2px;margin-bottom:20px}
+.step-title{font-size:18px;font-weight:700;color:var(--white);margin-bottom:10px}
+.step-desc{font-size:14px;color:rgba(255,255,255,.5);line-height:1.6}
+
+/* IMPACT */
+.impact{background:var(--white);border-top:1px solid var(--border)}
+.impact-inner{max-width:1300px;margin:0 auto;padding:80px clamp(20px,5vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.impact-text h2{font-size:clamp(28px,3.5vw,44px);font-weight:900;letter-spacing:-1px;margin-bottom:20px}
+.impact-text p{font-size:15px;color:var(--text-sec);line-height:1.8;margin-bottom:16px}
+.impact-stats{display:flex;flex-direction:column;gap:0}
+.impact-stat{padding:28px 0;border-bottom:1px solid var(--border)}
+.impact-stat:first-child{border-top:1px solid var(--border)}
+.impact-stat-num{font-size:36px;font-weight:900;color:var(--navy);letter-spacing:-1px}
+.impact-stat-label{font-size:12px;color:var(--text-sec);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
+
+/* CTA */
+.cta-section{background:var(--navy);padding:80px clamp(20px,5vw,80px);text-align:center}
+.cta-section h2{font-size:clamp(32px,4vw,48px);font-weight:900;color:var(--white);letter-spacing:-1.5px;margin-bottom:16px}
+.cta-section p{font-size:17px;color:var(--text-sec);margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto}
+.btn{display:inline-flex;align-items:center;padding:16px 36px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-primary{background:var(--blue);color:var(--white)}
+.btn-white{background:var(--white);color:var(--black);margin-left:2px}
+
+footer{background:var(--navy);padding:60px clamp(20px,5vw,80px) 40px;border-top:1px solid var(--navy-light)}
+.footer-inner{max-width:1300px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.footer-brand img{height:36px}
+.footer-brand p{font-size:14px;color:var(--text-sec);margin-top:20px;line-height:1.7;max-width:260px}
+.footer-col h4{font-size:11px;font-weight:700;color:var(--text-sec);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,.55);text-decoration:none;margin-bottom:10px;transition:color .2s}
+.footer-col a:hover{color:var(--white)}
+.footer-col p{font-size:14px;color:rgba(255,255,255,.55);margin-bottom:6px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:30px;display:flex;justify-content:space-between}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.3)}
+
+@media(max-width:900px){
+  .commitment-grid,.impact-inner{grid-template-columns:1fr}
+  .initiatives-grid,.steps{grid-template-columns:1fr}
+  .step{border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
+  .footer-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand"><img src="/images/us-logo.png" alt="Universal Solutions USA"></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/products/">Products</a>
+    <a href="/testimonials/">Testimonials</a>
+    <a href="/workforce/">Workforce</a>
+    <a href="/giving-back/" class="active">Giving Back</a>
+    <a href="/contact/">Contact</a>
+    <a href="/payments/" class="nav-cta">Pay Invoice</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-label">Sustainability & Community</div>
+    <h1>Giving Back<br>with Every Order</h1>
+    <p>1% of every purchase goes toward sustainability initiatives — because responsible business isn't just good practice, it's the right thing to do.</p>
+  </div>
+</div>
+
+<!-- COMMITMENT -->
+<section class="commitment">
+  <div class="section-inner">
+    <div class="section-label">Our Commitment</div>
+    <div class="commitment-grid">
+      <div class="commitment-text">
+        <h2>Business Built on<br>Responsibility</h2>
+        <p>At Universal Solutions USA, we believe that doing good business means doing good — for our customers, our communities, and the environment. That's why we've built sustainability into the core of everything we do.</p>
+        <p>Our Max 25 Universal Degreaser is formulated with eco-responsibility in mind, and with every order placed, 1% goes directly toward sustainability initiatives that make a real difference.</p>
+        <p>When you choose Universal Solutions, you're not just getting the best industrial maintenance products — you're participating in something bigger.</p>
+      </div>
+      <div class="one-percent">
+        <div class="big">1%</div>
+        <div class="big-sub">Of Every Purchase</div>
+        <p>Goes directly toward sustainability and community initiatives with every order we ship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INITIATIVES -->
+<section class="initiatives">
+  <div class="section-inner">
+    <div class="section-label">What We Support</div>
+    <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:900;letter-spacing:-1px;margin-top:16px;margin-bottom:0">Our Areas of Focus</h2>
+    <div class="initiatives-grid">
+      <div class="initiative-card">
+        <div class="initiative-icon">🌱</div>
+        <div class="initiative-title">Environmental Sustainability</div>
+        <div class="initiative-desc">Supporting environmental programs and green initiatives that reduce industrial impact and promote cleaner operations for future generations.</div>
+      </div>
+      <div class="initiative-card">
+        <div class="initiative-icon">♻️</div>
+        <div class="initiative-title">Eco-Responsible Products</div>
+        <div class="initiative-desc">Our product formulations are designed to minimize environmental footprint without compromising on the industrial-grade performance our customers depend on.</div>
+      </div>
+      <div class="initiative-card">
+        <div class="initiative-icon">🤝</div>
+        <div class="initiative-title">Community Investment</div>
+        <div class="initiative-desc">We invest in the communities where our customers operate, supporting programs that create opportunity and drive positive local impact.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="how">
+  <div class="how-inner">
+    <div style="font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px"><span style="width:24px;height:2px;background:var(--blue);display:block"></span>How It Works</div>
+    <h2>Simple. Automatic.<br>Every Order.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">Step 01</div>
+        <div class="step-title">You Place an Order</div>
+        <div class="step-desc">Order any product from our Micromass Concentrate line — Max 20 or Max 25 — through your account rep or directly.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 02</div>
+        <div class="step-title">1% Is Set Aside</div>
+        <div class="step-desc">Automatically, 1% of your purchase total is allocated toward our sustainability fund — no extra steps needed.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 03</div>
+        <div class="step-title">Impact Is Made</div>
+        <div class="step-desc">Funds go toward vetted environmental and community initiatives that create real, measurable positive change.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- IMPACT -->
+<div class="impact">
+  <div class="impact-inner">
+    <div class="impact-text">
+      <div style="font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px"><span style="width:24px;height:2px;background:var(--blue);display:block"></span>The Numbers</div>
+      <h2>Every Order Adds Up</h2>
+      <p>With 500+ facilities served across 50 states, our collective commitment to sustainability creates a meaningful impact that grows with every order.</p>
+      <p>The more facilities that choose Universal Solutions, the greater our shared positive impact on the environment and communities we serve.</p>
+    </div>
+    <div class="impact-stats">
+      <div class="impact-stat">
+        <div class="impact-stat-num">500+</div>
+        <div class="impact-stat-label">Facilities Contributing</div>
+      </div>
+      <div class="impact-stat">
+        <div class="impact-stat-num">50</div>
+        <div class="impact-stat-label">States Nationwide</div>
+      </div>
+      <div class="impact-stat">
+        <div class="impact-stat-num">1%</div>
+        <div class="impact-stat-label">Of Every Purchase</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div style="max-width:1300px;margin:0 auto">
+    <h2>Make an Impact<br>With Your Next Order</h2>
+    <p>Choose Universal Solutions and be part of a business that gives back with every purchase.</p>
+    <div style="display:flex;gap:2px;justify-content:center;flex-wrap:wrap">
+      <a href="/products/" class="btn btn-primary">View Products</a>
+      <a href="/contact/" class="btn btn-white">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/images/us-logo.png" alt="Universal Solutions USA">
+        <p>Wholesale maintenance supply for manufacturing, industrial, and commercial operations nationwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="/">Home</a>
+        <a href="/products/">Products</a>
+        <a href="/testimonials/">Testimonials</a>
+        <a href="/workforce/">Workforce</a>
+        <a href="/giving-back/">Giving Back</a>
+        <a href="/contact/">Contact</a>
+        <a href="/payments/">Pay Invoice</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>(954) 568-1700</p>
+        <p>universalsolutionsusa.com</p>
+        <p style="margin-top:16px;color:var(--text-sec);font-size:12px">Woman-Owned &amp; BBB Accredited</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Universal Solutions USA. All rights reserved.</p>
+      <p>Industrial Maintenance Supply</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

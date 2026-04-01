@@ -11,18 +11,18 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--black:#0a0a0a;--navy:#0a1f5c;--white:#ffffff;--off-white:#f5f5f5;--gray:#e0e0e0;--gray-mid:#999;--blue:#0ea5e9;--text:#0a0a0a;--text-sec:#444}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--off-white);color:var(--text);-webkit-font-smoothing:antialiased;min-height:100vh}
-nav{position:fixed;top:0;left:0;right:0;height:70px;background:var(--black);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,80px);border-bottom:1px solid #222}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--light-blue);color:var(--text);-webkit-font-smoothing:antialiased;min-height:100vh}
+nav{position:fixed;top:0;left:0;right:0;height:70px;background:var(--white);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,80px);border-bottom:1px solid var(--border)}
 .nav-brand{display:flex;align-items:center;text-decoration:none}
-.nav-brand img{height:40px;width:auto;filter:brightness(0) invert(1)}
+.nav-brand img{height:40px;width:auto;}
 .nav-links{display:flex;gap:0;align-items:center}
-.nav-links a{font-size:13px;font-weight:500;color:#aaa;text-decoration:none;padding:8px 18px;letter-spacing:.5px;text-transform:uppercase;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-links a{font-size:13px;font-weight:500;color:var(--text-sec);text-decoration:none;padding:8px 18px;letter-spacing:.5px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--navy)}
 .nav-links a.nav-cta{background:var(--blue);color:var(--white);padding:9px 24px;font-weight:600;margin-left:12px;letter-spacing:.3px;text-transform:none;font-size:14px}
 
 .payment-page{padding-top:70px;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:140px clamp(20px,5vw,80px) 80px}
-.payment-card{background:var(--white);border:1px solid var(--gray);max-width:560px;width:100%}
-.payment-header{background:var(--black);padding:48px;text-align:center}
+.payment-card{background:var(--white);border:1px solid var(--border);max-width:560px;width:100%}
+.payment-header{background:var(--navy);padding:48px;text-align:center}
 .payment-header .label{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
 .payment-header h1{font-size:36px;font-weight:900;color:var(--white);letter-spacing:-1px}
 .payment-body{padding:48px}
@@ -35,11 +35,11 @@ nav{position:fixed;top:0;left:0;right:0;height:70px;background:var(--black);z-in
 .trust-item{padding:24px 16px;text-align:center;border-right:1px solid var(--gray)}
 .trust-item:last-child{border-right:none}
 .trust-item svg{color:var(--blue);margin-bottom:8px}
-.trust-item p{font-size:11px;font-weight:700;color:var(--gray-mid);letter-spacing:1px;text-transform:uppercase;line-height:1.4}
+.trust-item p{font-size:11px;font-weight:700;color:var(--text-sec);letter-spacing:1px;text-transform:uppercase;line-height:1.4}
 
-footer{background:var(--black);padding:40px clamp(20px,5vw,80px);border-top:1px solid #1a1a1a}
+footer{background:var(--navy);padding:40px clamp(20px,5vw,80px);border-top:1px solid var(--navy-light)}
 .footer-bottom{max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-.footer-bottom p{font-size:12px;color:#444}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.3)}
 </style>
 </head>
 <body>
@@ -50,6 +50,9 @@ footer{background:var(--black);padding:40px clamp(20px,5vw,80px);border-top:1px 
     <a href="/">Home</a>
     <a href="/products/">Products</a>
     <a href="/testimonials/">Testimonials</a>
+    <a href="/workforce/">Workforce</a>
+    <a href="/giving-back/">Giving Back</a>
+    <a href="/contact/">Contact</a>
     <a href="/payments/" class="nav-cta">Pay Invoice</a>
   </div>
 </nav>

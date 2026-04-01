@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Workforce — Universal Solutions USA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/images/us-logo.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--navy:#0a1f5c;--white:#ffffff;--off-white:#f5f5f5;--gray:#e0e0e0;--gray-mid:#999;--blue:#0ea5e9;--text:#0a0a0a;--text-sec:#444}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;height:70px;background:var(--white);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,80px);border-bottom:1px solid var(--border)}
+.nav-brand{display:flex;align-items:center;text-decoration:none}
+.nav-brand img{height:48px;width:auto}
+.nav-links{display:flex;gap:0;align-items:center}
+.nav-links a{font-size:13px;font-weight:500;color:var(--text-sec);text-decoration:none;padding:8px 18px;letter-spacing:.5px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--navy)}
+.nav-links a.nav-cta{background:var(--blue);color:var(--white);padding:9px 24px;font-weight:600;margin-left:12px;letter-spacing:.3px;text-transform:none;font-size:14px}
+.nav-links a.nav-cta:hover{background:var(--blue-dark)}
+
+.page-header{padding-top:70px;background:var(--navy)}
+.page-header-inner{max-width:1300px;margin:0 auto;padding:80px clamp(20px,5vw,80px)}
+.page-label{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.page-label::before{content:'';width:24px;height:2px;background:var(--blue)}
+.page-header h1{font-size:clamp(40px,5vw,72px);font-weight:900;color:var(--white);letter-spacing:-2px;line-height:1}
+.page-header p{font-size:18px;color:var(--text-sec);margin-top:20px;max-width:600px;line-height:1.7}
+
+/* STAT BAR */
+.stat-bar{background:var(--navy);border-bottom:1px solid #1a3580}
+.stat-bar-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid #1a3580}
+.stat-item{padding:36px 40px;border-right:1px solid #1a3580}
+.stat-num{font-size:44px;font-weight:900;color:var(--white);letter-spacing:-2px;line-height:1}
+.stat-label{font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:2px;margin-top:8px}
+
+/* SECTIONS */
+section{padding:80px clamp(20px,5vw,80px)}
+.section-inner{max-width:1300px;margin:0 auto}
+.section-label{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.section-label::before{content:'';width:24px;height:2px;background:var(--blue)}
+
+/* MISSION BLOCK */
+.mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:48px}
+.mission-text h2{font-size:clamp(32px,4vw,52px);font-weight:900;letter-spacing:-1.5px;line-height:1.05;margin-bottom:24px}
+.mission-text p{font-size:16px;color:var(--text-sec);line-height:1.8;margin-bottom:16px}
+.highlight-block{background:var(--navy);padding:48px;color:var(--white)}
+.highlight-block .big-num{font-size:80px;font-weight:900;color:var(--blue);letter-spacing:-4px;line-height:1}
+.highlight-block .big-label{font-size:14px;font-weight:600;color:rgba(255,255,255,.7);margin-top:8px;text-transform:uppercase;letter-spacing:1px}
+.highlight-block p{font-size:15px;color:rgba(255,255,255,.6);margin-top:24px;line-height:1.7}
+
+/* DEPARTMENTS */
+.departments{background:var(--light-blue)}
+.dept-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px}
+.dept-card{background:var(--white);padding:36px;border:1px solid var(--border);transition:border-color .2s}
+.dept-card:hover{border-color:var(--blue)}
+.dept-num{font-size:11px;font-weight:700;color:#ccc;letter-spacing:2px;margin-bottom:16px}
+.dept-name{font-size:18px;font-weight:800;color:var(--black);letter-spacing:-.5px;margin-bottom:10px}
+.dept-desc{font-size:13px;color:var(--text-sec);line-height:1.6}
+
+/* WOMAN OWNED */
+.woman-owned{background:var(--navy)}
+.woman-owned-inner{max-width:1300px;margin:0 auto;padding:80px clamp(20px,5vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.woman-owned h2{font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--white);letter-spacing:-1.5px;line-height:1.05;margin-bottom:24px}
+.woman-owned p{font-size:16px;color:var(--text-sec);line-height:1.8;margin-bottom:16px}
+.badge-block{border:1px solid #333;padding:48px;text-align:center}
+.badge-icon{font-size:56px;margin-bottom:16px}
+.badge-title{font-size:20px;font-weight:800;color:var(--white);letter-spacing:-.5px}
+.badge-sub{font-size:13px;color:var(--text-sec);margin-top:8px;text-transform:uppercase;letter-spacing:1px}
+
+/* PROMO */
+.promo{background:var(--navy);padding:80px clamp(20px,5vw,80px)}
+.promo-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.promo h2{font-size:clamp(28px,3.5vw,44px);font-weight:900;color:var(--white);letter-spacing:-1px;margin-bottom:16px}
+.promo p{font-size:16px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:24px}
+.promo-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:36px}
+.promo-card h3{font-size:16px;font-weight:700;color:var(--white);margin-bottom:16px}
+.promo-items{list-style:none;display:flex;flex-direction:column;gap:10px}
+.promo-items li{font-size:14px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:10px}
+.promo-items li::before{content:'';width:6px;height:6px;background:var(--blue);flex-shrink:0}
+.promo-note{font-size:11px;color:rgba(255,255,255,.3);margin-top:16px;font-style:italic}
+
+/* CTA */
+.cta-section{background:var(--white);padding:80px clamp(20px,5vw,80px);text-align:center;border-top:1px solid var(--border)}
+.cta-section h2{font-size:clamp(32px,4vw,48px);font-weight:900;color:var(--black);letter-spacing:-1.5px;margin-bottom:16px}
+.cta-section p{font-size:17px;color:var(--text-sec);margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto}
+.btn{display:inline-flex;align-items:center;padding:16px 36px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-primary{background:var(--blue);color:var(--white)}
+.btn-dark{background:var(--navy);color:var(--white);margin-left:2px}
+
+footer{background:var(--navy);padding:60px clamp(20px,5vw,80px) 40px;border-top:1px solid var(--navy-light)}
+.footer-inner{max-width:1300px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.footer-brand img{height:36px}
+.footer-brand p{font-size:14px;color:var(--text-sec);margin-top:20px;line-height:1.7;max-width:260px}
+.footer-col h4{font-size:11px;font-weight:700;color:var(--text-sec);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,.55);text-decoration:none;margin-bottom:10px;transition:color .2s}
+.footer-col a:hover{color:var(--white)}
+.footer-col p{font-size:14px;color:rgba(255,255,255,.55);margin-bottom:6px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:30px;display:flex;justify-content:space-between}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.3)}
+
+@media(max-width:900px){
+  .mission-grid,.woman-owned-inner,.promo-inner{grid-template-columns:1fr}
+  .dept-grid{grid-template-columns:1fr 1fr}
+  .stat-bar-inner{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand"><img src="/images/us-logo.png" alt="Universal Solutions USA"></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/products/">Products</a>
+    <a href="/testimonials/">Testimonials</a>
+    <a href="/workforce/" class="active">Workforce</a>
+    <a href="/giving-back/">Giving Back</a>
+    <a href="/contact/">Contact</a>
+    <a href="/payments/" class="nav-cta">Pay Invoice</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-label">Our People</div>
+    <h1>The Workforce<br>Behind the Brand</h1>
+    <p>90% of our team is made up of highly skilled professionals with deep expertise across operations, logistics, sales, and customer relations.</p>
+  </div>
+</div>
+
+<div class="stat-bar">
+  <div class="stat-bar-inner">
+    <div class="stat-item">
+      <div class="stat-num">90%</div>
+      <div class="stat-label">Skilled Professionals</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Years Combined Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50</div>
+      <div class="stat-label">States Served</div>
+    </div>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">Our Mission</div>
+    <div class="mission-grid">
+      <div class="mission-text">
+        <h2>More Than a Supplier.<br>A Trusted Partner.</h2>
+        <p>Universal Solutions isn't just about products — it's about the people who deliver them. Our team brings real-world experience serving maintenance teams, facility managers, and industrial crews across all 50 states.</p>
+        <p>We understand the industries we serve, and we respect the expertise of the operational professionals we work alongside. That's why we go beyond product delivery to build lasting relationships with the purchasing and accounts payable teams who keep facilities running.</p>
+        <p>Every member of our workforce is committed to one thing: making sure you have what you need, when you need it, without hassle.</p>
+      </div>
+      <div class="highlight-block">
+        <div class="big-num">90%</div>
+        <div class="big-label">Highly Skilled Professionals</div>
+        <p>Our workforce is built from experienced professionals across logistics, operations, sales, and customer relations — bringing deep industry knowledge to every customer interaction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTMENTS -->
+<section class="departments">
+  <div class="section-inner">
+    <div class="section-label">Areas of Expertise</div>
+    <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:900;letter-spacing:-1px;margin-top:16px;margin-bottom:0">Skilled Across Every Function</h2>
+    <div class="dept-grid">
+      <div class="dept-card">
+        <div class="dept-num">01</div>
+        <div class="dept-name">Operations</div>
+        <div class="dept-desc">Streamlined fulfillment and supply chain management ensuring consistent, on-time delivery to facilities nationwide.</div>
+      </div>
+      <div class="dept-card">
+        <div class="dept-num">02</div>
+        <div class="dept-name">Logistics</div>
+        <div class="dept-desc">End-to-end distribution expertise covering warehousing, shipping, and inventory management across all 50 states.</div>
+      </div>
+      <div class="dept-card">
+        <div class="dept-num">03</div>
+        <div class="dept-name">Sales</div>
+        <div class="dept-desc">Knowledgeable sales professionals who understand facility needs and help customers find the right solution at the right price.</div>
+      </div>
+      <div class="dept-card">
+        <div class="dept-num">04</div>
+        <div class="dept-name">Customer Relations</div>
+        <div class="dept-desc">A dedicated support team that picks up the phone, answers questions, and stands behind every order we ship.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WOMAN OWNED -->
+<div class="woman-owned">
+  <div class="woman-owned-inner">
+    <div>
+      <div style="font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px"><span style="width:24px;height:2px;background:var(--blue);display:block"></span>Ownership</div>
+      <h2>Woman-Owned<br>& Operated</h2>
+      <p>Universal Solutions USA is proudly woman-owned and operated. Our leadership is driven by a commitment to excellence, integrity, and building a workforce that reflects the diversity of the industries we serve.</p>
+      <p>We believe that strong businesses are built on strong people — and we invest in our team the same way we invest in our customers.</p>
+    </div>
+    <div class="badge-block">
+      <div class="badge-icon">⭐</div>
+      <div class="badge-title">Woman-Owned Business</div>
+      <div class="badge-sub">Certified & Operated</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROMO -->
+<div class="promo">
+  <div class="promo-inner">
+    <div>
+      <div style="font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px"><span style="width:24px;height:2px;background:var(--blue);display:block"></span>First Order Offer</div>
+      <h2>The Grizzly Bear<br>Welcome Package</h2>
+      <p>We like to make first impressions count. New customers receive our Grizzly Bear Inspired Promotional Package with their first order — a small thank you for choosing Universal Solutions.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,.4)">Limited time offer. Available while supplies last.</p>
+    </div>
+    <div class="promo-card">
+      <h3>What's Included</h3>
+      <ul class="promo-items">
+        <li>Chocolate brown YETI mug set</li>
+        <li>Starbucks hot chocolate</li>
+        <li>Cozy fleece throw blanket</li>
+      </ul>
+      <p class="promo-note">Included with first orders. Limited time promotion.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div style="max-width:1300px;margin:0 auto">
+    <h2>Want to Work With Us?</h2>
+    <p>Reach out to our team to learn more about Universal Solutions or to place your first order.</p>
+    <div style="display:flex;gap:2px;justify-content:center;flex-wrap:wrap">
+      <a href="/contact/" class="btn btn-primary">Contact Us</a>
+      <a href="/products/" class="btn btn-dark">View Products</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/images/us-logo.png" alt="Universal Solutions USA">
+        <p>Wholesale maintenance supply for manufacturing, industrial, and commercial operations nationwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="/">Home</a>
+        <a href="/products/">Products</a>
+        <a href="/testimonials/">Testimonials</a>
+        <a href="/workforce/">Workforce</a>
+        <a href="/giving-back/">Giving Back</a>
+        <a href="/contact/">Contact</a>
+        <a href="/payments/">Pay Invoice</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>(954) 568-1700</p>
+        <p>universalsolutionsusa.com</p>
+        <p style="margin-top:16px;color:var(--text-sec);font-size:12px">Woman-Owned &amp; BBB Accredited</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Universal Solutions USA. All rights reserved.</p>
+      <p>Industrial Maintenance Supply</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

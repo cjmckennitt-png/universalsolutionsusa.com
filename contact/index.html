@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact Us — Universal Solutions USA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/images/us-logo.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--navy:#0a1f5c;--white:#ffffff;--off-white:#f5f5f5;--gray:#e0e0e0;--gray-mid:#999;--blue:#0ea5e9;--text:#0a0a0a;--text-sec:#444}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;height:70px;background:var(--white);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,80px);border-bottom:1px solid var(--border)}
+.nav-brand{display:flex;align-items:center;text-decoration:none}
+.nav-brand img{height:48px;width:auto}
+.nav-links{display:flex;gap:0;align-items:center}
+.nav-links a{font-size:13px;font-weight:500;color:var(--text-sec);text-decoration:none;padding:8px 18px;letter-spacing:.5px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--navy)}
+.nav-links a.nav-cta{background:var(--blue);color:var(--white);padding:9px 24px;font-weight:600;margin-left:12px;letter-spacing:.3px;text-transform:none;font-size:14px}
+.nav-links a.nav-cta:hover{background:var(--blue-dark)}
+
+.page-header{padding-top:70px;background:var(--navy)}
+.page-header-inner{max-width:1300px;margin:0 auto;padding:80px clamp(20px,5vw,80px)}
+.page-label{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.page-label::before{content:'';width:24px;height:2px;background:var(--blue)}
+.page-header h1{font-size:clamp(40px,5vw,72px);font-weight:900;color:var(--white);letter-spacing:-2px;line-height:1}
+.page-header p{font-size:18px;color:var(--text-sec);margin-top:20px;max-width:560px;line-height:1.7}
+
+/* CONTACT LAYOUT */
+.contact-section{padding:80px clamp(20px,5vw,80px)}
+.contact-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+
+/* CONTACT INFO */
+.contact-info{display:flex;flex-direction:column;gap:0}
+.info-label{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.info-label::before{content:'';width:24px;height:2px;background:var(--blue)}
+.info-title{font-size:clamp(28px,3.5vw,44px);font-weight:900;letter-spacing:-1.5px;margin-bottom:32px;line-height:1.05}
+.info-block{padding:28px 0;border-bottom:1px solid var(--border)}
+.info-block:first-of-type{border-top:1px solid var(--gray);margin-top:0}
+.info-block-label{font-size:11px;font-weight:700;color:var(--text-sec);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.info-block-value{font-size:18px;font-weight:700;color:var(--black)}
+.info-block-value a{color:var(--navy);text-decoration:none}
+.info-block-value a:hover{color:var(--blue)}
+.info-block-sub{font-size:13px;color:var(--text-sec);margin-top:4px}
+
+/* FORM */
+.contact-form{background:var(--light-blue);padding:48px;border:1px solid var(--gray)}
+.form-title{font-size:22px;font-weight:800;color:var(--black);letter-spacing:-.5px;margin-bottom:8px}
+.form-sub{font-size:14px;color:var(--text-sec);margin-bottom:32px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:12px;font-weight:700;color:var(--black);letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}
+.form-group input,
+.form-group select,
+.form-group textarea{width:100%;padding:14px 16px;border:1px solid var(--border);background:var(--white);font-family:'Inter',sans-serif;font-size:15px;color:var(--text);outline:none;transition:border-color .2s}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--navy)}
+.form-group textarea{height:120px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.submit-btn{width:100%;background:var(--navy);color:var(--white);border:none;padding:16px;font-size:15px;font-weight:700;letter-spacing:.5px;cursor:pointer;transition:background .2s;font-family:'Inter',sans-serif;margin-top:8px}
+.submit-btn:hover{background:var(--blue)}
+
+/* TRUST BAR */
+.trust-bar{background:var(--navy);padding:48px clamp(20px,5vw,80px)}
+.trust-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(255,255,255,.1)}
+.trust-block{padding:32px;border-right:1px solid rgba(255,255,255,.1);text-align:center}
+.trust-block:last-child{border-right:none}
+.trust-num{font-size:32px;font-weight:900;color:var(--white);letter-spacing:-1px}
+.trust-label{font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:2px;margin-top:6px}
+
+footer{background:var(--navy);padding:60px clamp(20px,5vw,80px) 40px;border-top:1px solid var(--navy-light)}
+.footer-inner{max-width:1300px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.footer-brand img{height:36px}
+.footer-brand p{font-size:14px;color:var(--text-sec);margin-top:20px;line-height:1.7;max-width:260px}
+.footer-col h4{font-size:11px;font-weight:700;color:var(--text-sec);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,.55);text-decoration:none;margin-bottom:10px;transition:color .2s}
+.footer-col a:hover{color:var(--white)}
+.footer-col p{font-size:14px;color:rgba(255,255,255,.55);margin-bottom:6px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:30px;display:flex;justify-content:space-between}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.3)}
+
+@media(max-width:900px){
+  .contact-inner{grid-template-columns:1fr}
+  .trust-inner{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand"><img src="/images/us-logo.png" alt="Universal Solutions USA"></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/products/">Products</a>
+    <a href="/testimonials/">Testimonials</a>
+    <a href="/workforce/">Workforce</a>
+    <a href="/giving-back/">Giving Back</a>
+    <a href="/contact/" class="active">Contact</a>
+    <a href="/payments/" class="nav-cta">Pay Invoice</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-label">Get in Touch</div>
+    <h1>Contact<br>Universal Solutions</h1>
+    <p>Have questions about our products or want to place an order? Our team is ready to help.</p>
+  </div>
+</div>
+
+<section class="contact-section">
+  <div class="contact-inner">
+
+    <!-- INFO -->
+    <div class="contact-info">
+      <div class="info-label">Contact Information</div>
+      <h2 class="info-title">Let's Talk<br>Business</h2>
+
+      <div class="info-block">
+        <div class="info-block-label">Phone</div>
+        <div class="info-block-value"><a href="tel:+19545681700">(954) 568-1700</a></div>
+        <div class="info-block-sub">Call us directly — we pick up</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">Website</div>
+        <div class="info-block-value"><a href="https://universalsolutionsusa.com" target="_blank">universalsolutionsusa.com</a></div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">Service Area</div>
+        <div class="info-block-value">All 50 States</div>
+        <div class="info-block-sub">Nationwide distribution & supply</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">Accreditation</div>
+        <div class="info-block-value">BBB Accredited Business</div>
+        <div class="info-block-sub">Woman-Owned &amp; Operated</div>
+      </div>
+
+      <div style="margin-top:40px;padding:32px;background:var(--navy);color:var(--white)">
+        <div style="font-size:13px;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px">Pay an Invoice</div>
+        <p style="font-size:14px;color:var(--text-sec);margin-bottom:20px;line-height:1.6">Ready to pay your invoice? Use our secure online payment portal.</p>
+        <a href="/payments/" style="display:inline-block;background:var(--blue);color:var(--white);text-decoration:none;padding:12px 28px;font-size:14px;font-weight:700">Pay Invoice Now →</a>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="contact-form">
+      <div class="form-title">Send Us a Message</div>
+      <div class="form-sub">Fill out the form below and we'll get back to you promptly.</div>
+
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="first_name" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="last_name" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Company / Facility</label>
+          <input type="text" name="company" placeholder="Your Company Name">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" name="phone" placeholder="(555) 000-0000">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="you@company.com" required>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select name="subject">
+            <option value="">Select a topic...</option>
+            <option value="product-inquiry">Product Inquiry</option>
+            <option value="place-order">Place an Order</option>
+            <option value="invoice">Invoice Question</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" placeholder="Tell us about your facility's needs..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-block">
+      <div class="trust-num">10+</div>
+      <div class="trust-label">Years in Business</div>
+    </div>
+    <div class="trust-block">
+      <div class="trust-num">500+</div>
+      <div class="trust-label">Facilities Served</div>
+    </div>
+    <div class="trust-block">
+      <div class="trust-num">50</div>
+      <div class="trust-label">States Nationwide</div>
+    </div>
+    <div class="trust-block">
+      <div class="trust-num">BBB</div>
+      <div class="trust-label">Accredited Business</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/images/us-logo.png" alt="Universal Solutions USA">
+        <p>Wholesale maintenance supply for manufacturing, industrial, and commercial operations nationwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="/">Home</a>
+        <a href="/products/">Products</a>
+        <a href="/testimonials/">Testimonials</a>
+        <a href="/workforce/">Workforce</a>
+        <a href="/giving-back/">Giving Back</a>
+        <a href="/contact/">Contact</a>
+        <a href="/payments/">Pay Invoice</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>(954) 568-1700</p>
+        <p>universalsolutionsusa.com</p>
+        <p style="margin-top:16px;color:var(--text-sec);font-size:12px">Woman-Owned &amp; BBB Accredited</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Universal Solutions USA. All rights reserved.</p>
+      <p>Industrial Maintenance Supply</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
