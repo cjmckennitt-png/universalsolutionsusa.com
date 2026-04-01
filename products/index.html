@@ -9,9 +9,21 @@
 <link rel="icon" type="image/png" href="/images/us-logo.png">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--black:#0a0a0a;--navy:#0a1f5c;--white:#ffffff;--off-white:#f5f5f5;--gray:#e0e0e0;--gray-mid:#999;--blue:#0ea5e9;--text:#0a0a0a;--text-sec:#444}
+:root{
+  --navy:#0a1f5c;
+  --navy-light:#1a3a7c;
+  --white:#ffffff;
+  --light-blue:#e8f3fc;
+  --pale-blue:#f0f8ff;
+  --blue:#0ea5e9;
+  --blue-dark:#0284c7;
+  --text:#0a1f5c;
+  --text-sec:#3d6088;
+  --border:#bdd8ef;
+}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--pale-blue);color:var(--text);-webkit-font-smoothing:antialiased}
+
 nav{position:fixed;top:0;left:0;right:0;height:150px;background:var(--white);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,80px);border-bottom:1px solid var(--border)}
 .nav-brand{display:flex;align-items:center;text-decoration:none}
 .nav-brand img{height:140px;width:auto;}
@@ -21,76 +33,148 @@ nav{position:fixed;top:0;left:0;right:0;height:150px;background:var(--white);z-i
 .nav-links a.nav-cta{background:var(--blue);color:var(--white);padding:9px 24px;font-weight:600;margin-left:12px;letter-spacing:.3px;text-transform:none;font-size:14px}
 .nav-links a.nav-cta:hover{background:var(--blue-dark)}
 
-.page-header{padding-top:150px;background:var(--navy);padding-bottom:80px;position:relative;overflow:hidden}
+/* PAGE HEADER */
+.page-header{padding-top:150px;background:var(--navy);padding-bottom:100px;position:relative;overflow:hidden}
 .page-header-bg{position:absolute;inset:0;background-image:url('/images/products-line.png');background-size:cover;background-position:center;opacity:.15;-webkit-mask-image:radial-gradient(ellipse 80% 90% at 70% 50%,black 20%,transparent 100%);mask-image:radial-gradient(ellipse 80% 90% at 70% 50%,black 20%,transparent 100%)}
 .page-header-inner{max-width:1300px;margin:0 auto;padding:80px clamp(20px,5vw,80px) 0;position:relative;z-index:1}
 .page-label{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
 .page-label::before{content:'';width:24px;height:2px;background:var(--blue)}
-.page-header h1{font-size:clamp(40px,5vw,72px);font-weight:900;color:var(--white);letter-spacing:-2px;line-height:1}
-.page-header p{font-size:18px;color:var(--text-sec);margin-top:20px;max-width:560px;line-height:1.7}
+.page-header h1{font-size:clamp(40px,5vw,72px);font-weight:900;color:var(--white);letter-spacing:-2px;line-height:1;margin-bottom:24px}
+.page-header p{font-size:18px;color:rgba(255,255,255,.7);max-width:580px;line-height:1.7}
+.header-stats{display:flex;gap:60px;margin-top:56px;padding-top:40px;border-top:1px solid rgba(255,255,255,.12)}
+.header-stat-num{font-size:36px;font-weight:900;color:var(--white);letter-spacing:-1px}
+.header-stat-label{font-size:12px;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
 
-section{padding:80px clamp(20px,5vw,80px)}
-.section-inner{max-width:1300px;margin:0 auto}
+/* INTRO BAND */
+.intro-band{background:var(--light-blue);padding:60px clamp(20px,5vw,80px);border-bottom:1px solid var(--border)}
+.intro-band-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+.intro-band-item{padding:0 40px;border-right:1px solid var(--border);text-align:center}
+.intro-band-item:first-child{padding-left:0;text-align:left}
+.intro-band-item:last-child{border-right:none;padding-right:0;text-align:right}
+.intro-band-item svg{color:var(--blue);margin-bottom:12px}
+.intro-band-item h3{font-size:16px;font-weight:800;color:var(--navy);letter-spacing:-.3px;margin-bottom:6px}
+.intro-band-item p{font-size:13px;color:var(--text-sec);line-height:1.6}
 
-/* PRODUCT BLOCKS */
-.product-block{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);margin-bottom:2px}
-.product-block.reverse{direction:rtl}
-.product-block.reverse>*{direction:ltr}
-.product-info{padding:60px;background:var(--white)}
-.product-visual{background:var(--navy);display:flex;align-items:center;justify-content:center;min-height:400px;position:relative;overflow:hidden}
-.product-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--navy) 0%,#1a3580 100%)}
-.product-visual-text{position:relative;z-index:1;text-align:center;padding:40px}
-.product-visual-name{font-size:80px;font-weight:900;color:rgba(255,255,255,.08);letter-spacing:-4px;line-height:1;position:absolute;bottom:20px;right:20px}
-.product-visual-badge{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
-.product-visual-label{font-size:36px;font-weight:900;color:var(--white);letter-spacing:-1px;line-height:1.1}
-.product-visual-sub{font-size:14px;color:rgba(255,255,255,.5);margin-top:12px}
+/* PRODUCT SECTIONS */
+.products-section{padding:0}
 
-.product-tag{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
-.product-name{font-size:42px;font-weight:900;color:var(--black);letter-spacing:-1.5px;margin-bottom:16px;line-height:1}
-.product-desc{font-size:15px;color:var(--text-sec);line-height:1.8;margin-bottom:32px}
-.spec-list{list-style:none;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border)}
-.spec-list li{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--gray);font-size:14px}
-.spec-list li span:first-child{color:var(--text-sec);font-weight:500}
-.spec-list li span:last-child{color:var(--black);font-weight:600}
-.product-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
-.product-badge{font-size:11px;font-weight:600;padding:5px 12px;letter-spacing:.5px;text-transform:uppercase;background:var(--light-blue);color:var(--text-sec);border:1px solid var(--gray)}
+.product-hero{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
+.product-hero.flip{direction:rtl}
+.product-hero.flip>*{direction:ltr}
 
-/* BBB SECTION */
-.bbb-section{background:var(--light-blue);padding:80px clamp(20px,5vw,80px)}
-.bbb-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.bbb-text .label{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}
-.bbb-text .label::before{content:'';width:24px;height:2px;background:var(--blue)}
-.bbb-text h2{font-size:clamp(28px,3vw,44px);font-weight:900;color:var(--black);letter-spacing:-1px;margin-bottom:20px;line-height:1.1}
-.bbb-text p{font-size:15px;color:var(--text-sec);line-height:1.8}
-.bbb-badge{display:flex;align-items:center;justify-content:center;border:1px solid var(--border);padding:60px;background:var(--white)}
-.bbb-badge-inner{text-align:center}
-.bbb-badge-inner div{font-size:64px;font-weight:900;color:var(--navy);letter-spacing:-2px}
-.bbb-badge-inner p{font-size:12px;font-weight:700;color:var(--text-sec);letter-spacing:2px;text-transform:uppercase;margin-top:8px}
-.bbb-badge-inner span{font-size:13px;color:var(--blue);font-weight:600;display:block;margin-top:4px}
+.product-content{padding:80px clamp(30px,5vw,80px);background:var(--white);display:flex;flex-direction:column;justify-content:center}
+.product-series{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.product-series::before{content:'';width:20px;height:2px;background:var(--blue)}
+.product-title{font-size:clamp(52px,6vw,80px);font-weight:900;color:var(--navy);letter-spacing:-3px;line-height:.9;margin-bottom:8px}
+.product-subtitle{font-size:20px;font-weight:700;color:var(--blue);letter-spacing:-.3px;margin-bottom:28px}
+.product-desc{font-size:15px;color:var(--text-sec);line-height:1.85;margin-bottom:36px;max-width:480px}
 
-/* CTA */
-.cta-section{background:var(--blue);padding:100px clamp(20px,5vw,80px);text-align:center}
-.cta-section h2{font-size:clamp(36px,4vw,56px);font-weight:900;color:var(--white);letter-spacing:-1.5px;margin-bottom:20px}
-.cta-section p{font-size:18px;color:var(--text-sec);margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;font-size:15px;font-weight:600;text-decoration:none;letter-spacing:.2px;transition:all .2s}
-.btn-primary{background:var(--blue);color:var(--white)}
-.btn-primary:hover{background:#0284c7}
+.product-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px}
+.feature-item{display:flex;gap:12px;align-items:flex-start}
+.feature-icon{width:32px;height:32px;background:var(--light-blue);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.feature-icon svg{color:var(--blue)}
+.feature-text h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:2px}
+.feature-text p{font-size:12px;color:var(--text-sec);line-height:1.5}
+
+.spec-table{border-top:1px solid var(--border);margin-bottom:32px}
+.spec-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px}
+.spec-row:last-child{border-bottom:none}
+.spec-label{color:var(--text-sec);font-weight:500}
+.spec-value{color:var(--navy);font-weight:700}
+
+.product-cta-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.btn-order{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:var(--white);text-decoration:none;padding:16px 32px;font-size:14px;font-weight:700;letter-spacing:.3px;transition:background .2s}
+.btn-order:hover{background:var(--blue)}
+.btn-call{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--navy);text-decoration:none;padding:16px 24px;font-size:14px;font-weight:600;letter-spacing:.3px;border:2px solid var(--border);transition:all .2s}
+.btn-call:hover{border-color:var(--navy)}
+
+.product-visual{background:var(--navy);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-height:600px}
+.product-visual-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(14,165,233,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,.07) 1px,transparent 1px);background-size:60px 60px}
+.product-visual-glow{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(14,165,233,.18) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.product-visual-inner{position:relative;z-index:1;text-align:center;padding:60px}
+.product-number{font-size:180px;font-weight:900;color:rgba(255,255,255,.06);letter-spacing:-12px;line-height:1;position:absolute;bottom:-20px;right:-10px;pointer-events:none}
+.product-badge-top{font-size:10px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;border:1px solid rgba(14,165,233,.3);padding:6px 16px;display:inline-block}
+.product-visual-name{font-size:72px;font-weight:900;color:var(--white);letter-spacing:-3px;line-height:1;margin-bottom:8px}
+.product-visual-type{font-size:16px;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase;margin-bottom:32px}
+.dilution-display{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:24px 40px;display:inline-block}
+.dilution-num{font-size:48px;font-weight:900;color:var(--blue);letter-spacing:-2px;line-height:1}
+.dilution-label{font-size:11px;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+
+/* WHY CHOOSE */
+.why-section{background:var(--light-blue);padding:100px clamp(20px,5vw,80px);border-top:1px solid var(--border)}
+.why-inner{max-width:1300px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:64px}
+.section-label{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:12px}
+.section-label::before,.section-label::after{content:'';width:24px;height:2px;background:var(--blue)}
+.section-header h2{font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--navy);letter-spacing:-1.5px;margin-bottom:16px}
+.section-header p{font-size:16px;color:var(--text-sec);max-width:520px;margin:0 auto;line-height:1.7}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.why-card{background:var(--white);padding:48px 40px;border:1px solid var(--border)}
+.why-card-num{font-size:48px;font-weight:900;color:var(--light-blue);letter-spacing:-2px;line-height:1;margin-bottom:20px}
+.why-card h3{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.3px;margin-bottom:12px}
+.why-card p{font-size:14px;color:var(--text-sec);line-height:1.75}
+
+/* COMPARE TABLE */
+.compare-section{background:var(--white);padding:100px clamp(20px,5vw,80px)}
+.compare-inner{max-width:1000px;margin:0 auto}
+.compare-table{width:100%;border-collapse:collapse;margin-top:48px}
+.compare-table th{padding:20px 24px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-bottom:2px solid var(--navy)}
+.compare-table th:first-child{text-align:left;color:var(--text-sec)}
+.compare-table th:not(:first-child){text-align:center;color:var(--white);background:var(--navy);width:200px}
+.compare-table th.max25-header{background:var(--blue)}
+.compare-table td{padding:18px 24px;font-size:14px;border-bottom:1px solid var(--border)}
+.compare-table td:first-child{color:var(--text-sec);font-weight:500}
+.compare-table td:not(:first-child){text-align:center;font-weight:700;color:var(--navy)}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:hover td{background:var(--pale-blue)}
+.check{color:var(--blue);font-size:18px}
+
+/* TESTIMONIAL PULL QUOTE */
+.pullquote-section{background:var(--navy);padding:100px clamp(20px,5vw,80px);text-align:center}
+.pullquote-inner{max-width:900px;margin:0 auto}
+.quote-mark{font-size:120px;font-weight:900;color:rgba(14,165,233,.2);line-height:.5;display:block;margin-bottom:24px}
+blockquote{font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--white);letter-spacing:-.5px;line-height:1.4;margin-bottom:32px}
+.quote-source{font-size:13px;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase}
+.quote-source span{color:var(--blue)}
+
+/* CTA BAND */
+.cta-band{background:var(--blue);padding:100px clamp(20px,5vw,80px)}
+.cta-band-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center}
+.cta-band h2{font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--white);letter-spacing:-1.5px;line-height:1.05;margin-bottom:12px}
+.cta-band p{font-size:16px;color:rgba(255,255,255,.75);line-height:1.6;max-width:480px}
+.cta-band-actions{display:flex;flex-direction:column;gap:12px;flex-shrink:0}
+.cta-btn-white{display:block;background:var(--white);color:var(--navy);text-decoration:none;padding:18px 40px;font-size:15px;font-weight:800;letter-spacing:.2px;text-align:center;transition:all .2s;white-space:nowrap}
+.cta-btn-white:hover{background:var(--pale-blue)}
+.cta-btn-outline{display:block;background:transparent;color:var(--white);text-decoration:none;padding:18px 40px;font-size:15px;font-weight:600;letter-spacing:.2px;text-align:center;border:2px solid rgba(255,255,255,.4);transition:all .2s;white-space:nowrap}
+.cta-btn-outline:hover{border-color:var(--white)}
 
 footer{background:var(--navy);padding:60px clamp(20px,5vw,80px) 40px;border-top:1px solid var(--navy-light)}
 .footer-inner{max-width:1300px;margin:0 auto}
 .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px}
-.footer-brand img{height:60px;}
-.footer-brand p{font-size:14px;color:var(--text-sec);margin-top:20px;line-height:1.7;max-width:260px}
-.footer-col h4{font-size:11px;font-weight:700;color:var(--text-sec);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.footer-brand p{font-size:14px;color:rgba(255,255,255,.45);margin-top:16px;line-height:1.7;max-width:260px}
+.footer-col h4{font-size:11px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
 .footer-col a{display:block;font-size:14px;color:rgba(255,255,255,.55);text-decoration:none;margin-bottom:10px;transition:color .2s}
 .footer-col a:hover{color:var(--white)}
 .footer-col p{font-size:14px;color:rgba(255,255,255,.55);margin-bottom:6px}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:30px;display:flex;justify-content:space-between;align-items:center}
 .footer-bottom p{font-size:12px;color:rgba(255,255,255,.3)}
 
-@media(max-width:900px){
-  .product-block,.bbb-inner{grid-template-columns:1fr}
-  .product-block.reverse{direction:ltr}
+@media(max-width:1000px){
+  .product-hero,.product-hero.flip{grid-template-columns:1fr;direction:ltr}
+  .product-hero.flip>*{direction:ltr}
+  .product-visual{min-height:300px}
+  .product-number{font-size:120px}
+  .why-grid{grid-template-columns:1fr}
+  .compare-table th:not(:first-child){width:140px}
+  .cta-band-inner{grid-template-columns:1fr}
+  .intro-band-inner{grid-template-columns:1fr;gap:32px}
+  .intro-band-item{border-right:none;padding:0;text-align:left}
+  .intro-band-item:last-child{text-align:left}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .product-features{grid-template-columns:1fr}
+  .header-stats{flex-direction:column;gap:28px}
   .footer-top{grid-template-columns:1fr}
 }
 </style>
@@ -101,114 +185,343 @@ footer{background:var(--navy);padding:60px clamp(20px,5vw,80px) 40px;border-top:
   <a href="/" class="nav-brand"><img src="/images/us-logo.png" alt="Universal Solutions USA"></a>
   <div class="nav-links">
     <a href="/">Home</a>
+    <a href="/about/">About</a>
     <a href="/products/" class="active">Products</a>
     <a href="/testimonials/">Testimonials</a>
-    <a href="/workforce/">Workforce</a>
     <a href="/giving-back/">Giving Back</a>
-    <a href="/contact/">Contact</a>
     <a href="/payments/" class="nav-cta">Pay Invoice</a>
   </div>
 </nav>
 
+<!-- PAGE HEADER -->
 <div class="page-header">
   <div class="page-header-bg"></div>
   <div class="page-header-inner">
-    <div class="page-label">Our Product Line</div>
-    <h1>Micromass Concentrate<br>Maintenance Solutions</h1>
-    <p>High-performance formulas trusted by 500+ facilities nationwide. Industrial strength. Unmatched reliability. Every detail matters.</p>
-  </div>
-</div>
-
-<section style="padding:80px clamp(20px,5vw,80px)">
-  <div class="section-inner">
-
-    <!-- MAX 20 -->
-    <div class="product-block">
-      <div class="product-info">
-        <div class="product-tag">Max 20 — Universal Cleaner</div>
-        <div class="product-name">Max 20</div>
-        <p class="product-desc">A powerful all-purpose industrial cleaner formulated for heavy-duty surface cleaning across manufacturing, commercial, and institutional environments. Cuts through grease, grime, and buildup efficiently with a high-dilution formula that stretches every gallon further.</p>
-        <ul class="spec-list">
-          <li><span>Type</span><span>All-Purpose Industrial Cleaner</span></li>
-          <li><span>Dilution Ratio</span><span>Up to 20:1</span></li>
-          <li><span>Surface Safe</span><span>Most hard surfaces</span></li>
-          <li><span>Formula</span><span>Non-corrosive, Low-VOC</span></li>
-          <li><span>Application</span><span>Spray, mop, scrub, foam</span></li>
-        </ul>
-        <div class="product-tags">
-          <span class="product-badge">Industrial Strength</span>
-          <span class="product-badge">High Dilution</span>
-          <span class="product-badge">Multi-Surface</span>
-        </div>
+    <div class="page-label">Micromass Concentrate Series</div>
+    <h1>Industrial Cleaning<br>That Actually Works.</h1>
+    <p>Two products. Thirty years of trust. The Max 20 and Max 25 are the workhorses behind some of America's most demanding facilities — chosen for their performance, not their price tag.</p>
+    <div class="header-stats">
+      <div>
+        <div class="header-stat-num">500+</div>
+        <div class="header-stat-label">Facilities Nationwide</div>
       </div>
-      <div class="product-visual">
-        <div class="product-visual-text">
-          <div class="product-visual-badge">Micromass Series</div>
-          <div class="product-visual-label">Universal<br>Cleaner</div>
-          <div class="product-visual-sub">20:1 High-Dilution Formula</div>
-        </div>
-        <div class="product-visual-name">20</div>
+      <div>
+        <div class="header-stat-num">30 Yrs</div>
+        <div class="header-stat-label">Proven Track Record</div>
       </div>
-    </div>
-
-    <!-- MAX 25 -->
-    <div class="product-block reverse">
-      <div class="product-info">
-        <div class="product-tag">Max 25 — Universal Degreaser</div>
-        <div class="product-name">Max 25</div>
-        <p class="product-desc">Industrial-strength degreaser engineered for the toughest environments. Penetrates and dissolves oils, grease, mechanical residue, and industrial soils quickly and completely. Trusted by maintenance teams across 50 states.</p>
-        <ul class="spec-list">
-          <li><span>Type</span><span>Heavy-Duty Degreaser</span></li>
-          <li><span>Dilution Ratio</span><span>Up to 25:1</span></li>
-          <li><span>Performance</span><span>Cuts through heavy grease & oil</span></li>
-          <li><span>Sustainability</span><span>1% toward eco initiatives</span></li>
-          <li><span>Application</span><span>Spray, soak, pressure wash</span></li>
-        </ul>
-        <div class="product-tags">
-          <span class="product-badge">Heavy-Duty</span>
-          <span class="product-badge">Eco-Responsible</span>
-          <span class="product-badge">25:1 Ratio</span>
-        </div>
+      <div>
+        <div class="header-stat-num">50</div>
+        <div class="header-stat-label">States Served</div>
       </div>
-      <div class="product-visual" style="background:var(--navy)">
-        <div class="product-visual-text">
-          <div class="product-visual-badge">Micromass Series</div>
-          <div class="product-visual-label">Universal<br>Degreaser</div>
-          <div class="product-visual-sub">25:1 High-Dilution Formula</div>
-        </div>
-        <div class="product-visual-name">25</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- BBB -->
-<div class="bbb-section">
-  <div class="bbb-inner">
-    <div class="bbb-text">
-      <div class="label">Our Commitment</div>
-      <h2>Universal Solutions' Commitment to Excellence</h2>
-      <p>We begin with offering top quality products and supplies, combined with unmatched customer service included with every order. Every detail of our product line reflects our aspiration to provide exceptional results for our customers. With a 30 year history of providing a highly-effective product line, Universal Solutions assures confidence, superior performance, and lasting customer satisfaction.</p>
-    </div>
-    <div class="bbb-badge">
-      <div class="bbb-badge-inner">
-        <div>BBB</div>
-        <p>Accredited Business</p>
-        <span>Trusted Quality & Performance</span>
+      <div>
+        <div class="header-stat-num">25:1</div>
+        <div class="header-stat-label">Max Dilution Ratio</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CTA -->
-<div class="cta-section">
-  <div style="max-width:1300px;margin:0 auto">
-    <h2>Ready to Order?</h2>
-    <p>Contact us to discuss your facility's needs or pay an existing invoice securely online.</p>
-    <div style="display:flex;gap:2px;justify-content:center;flex-wrap:wrap">
-      <a href="tel:+19545681700" class="btn btn-primary">Call (954) 568-1700</a>
-      <a href="/payments/" class="btn" style="background:#fff;color:var(--navy);margin-left:2px">Pay Invoice</a>
+<!-- INTRO BAND -->
+<div class="intro-band">
+  <div class="intro-band-inner">
+    <div class="intro-band-item">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <h3>BBB Accredited</h3>
+      <p>30 years of verified business integrity and customer satisfaction</p>
+    </div>
+    <div class="intro-band-item">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <h3>Ships Fast, Nationwide</h3>
+      <p>Serving 50 states — your facility gets what it needs, when it needs it</p>
+    </div>
+    <div class="intro-band-item">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <h3>Woman-Owned & Operated</h3>
+      <p>Independent, hands-on, and invested in every customer relationship</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MAX 20 ============ -->
+<div class="products-section">
+  <div class="product-hero">
+    <!-- Info -->
+    <div class="product-content">
+      <div class="product-series">Micromass Series</div>
+      <div class="product-title">Max 20</div>
+      <div class="product-subtitle">Universal All-Purpose Cleaner</div>
+      <p class="product-desc">When every surface in your facility needs to be clean — floors, equipment, walls, fixtures — the Max 20 handles it all. A high-dilution, non-corrosive formula that stretches your budget without cutting performance. The workhorse cleaner trusted by maintenance teams from manufacturing plants to commercial buildings across America.</p>
+
+      <div class="product-features">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="feature-text">
+            <h4>20:1 Dilution Ratio</h4>
+            <p>One gallon goes further — lower cost per use</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="feature-text">
+            <h4>Multi-Surface Safe</h4>
+            <p>Works on most hard surfaces without damage</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="feature-text">
+            <h4>Non-Corrosive</h4>
+            <p>Safe on equipment and surfaces — no damage risk</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="feature-text">
+            <h4>Versatile Application</h4>
+            <p>Spray, mop, scrub, or foam — any method works</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-table">
+        <div class="spec-row"><span class="spec-label">Product Type</span><span class="spec-value">All-Purpose Industrial Cleaner</span></div>
+        <div class="spec-row"><span class="spec-label">Max Dilution Ratio</span><span class="spec-value">20:1</span></div>
+        <div class="spec-row"><span class="spec-label">Surface Compatibility</span><span class="spec-value">Most hard surfaces</span></div>
+        <div class="spec-row"><span class="spec-label">Formula</span><span class="spec-value">Non-corrosive, Low-VOC</span></div>
+        <div class="spec-row"><span class="spec-label">Application Methods</span><span class="spec-value">Spray, mop, scrub, foam</span></div>
+      </div>
+
+      <div class="product-cta-row">
+        <a href="tel:+19545681700" class="btn-order">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6 6l.9-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+          Order Max 20
+        </a>
+        <a href="tel:+19545681700" class="btn-call">(954) 568-1700</a>
+      </div>
+    </div>
+
+    <!-- Visual -->
+    <div class="product-visual">
+      <div class="product-visual-grid"></div>
+      <div class="product-visual-glow"></div>
+      <div class="product-visual-inner">
+        <div class="product-badge-top">Micromass Series</div>
+        <div class="product-visual-name">Max 20</div>
+        <div class="product-visual-type">Universal Cleaner</div>
+        <div class="dilution-display">
+          <div class="dilution-num">20:1</div>
+          <div class="dilution-label">Dilution Ratio</div>
+        </div>
+      </div>
+      <div class="product-number">20</div>
+    </div>
+  </div>
+
+  <!-- ============ MAX 25 ============ -->
+  <div class="product-hero flip" style="border-top:2px solid var(--border)">
+    <!-- Info -->
+    <div class="product-content" style="background:var(--pale-blue)">
+      <div class="product-series">Micromass Series</div>
+      <div class="product-title">Max 25</div>
+      <div class="product-subtitle">Heavy-Duty Industrial Degreaser</div>
+      <p class="product-desc">When the job calls for more than a general cleaner, the Max 25 steps up. Engineered to penetrate and dissolve oils, heavy grease, mechanical residue, and industrial soils that other products leave behind. If your team works with machinery, vehicles, or high-buildup environments, this is the product that earns its spot in your supply closet.</p>
+
+      <div class="product-features">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="feature-text">
+            <h4>25:1 Dilution Ratio</h4>
+            <p>Maximum value from every gallon purchased</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="feature-text">
+            <h4>Cuts Heavy Grease & Oil</h4>
+            <p>Penetrates industrial soils other cleaners can't touch</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="feature-text">
+            <h4>Eco-Responsible</h4>
+            <p>1% of profits go toward environmental initiatives</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="feature-text">
+            <h4>Pressure Wash Ready</h4>
+            <p>Spray, soak, or power wash — built for any method</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-table">
+        <div class="spec-row"><span class="spec-label">Product Type</span><span class="spec-value">Heavy-Duty Degreaser</span></div>
+        <div class="spec-row"><span class="spec-label">Max Dilution Ratio</span><span class="spec-value">25:1</span></div>
+        <div class="spec-row"><span class="spec-label">Target Soils</span><span class="spec-value">Oil, grease, mechanical residue</span></div>
+        <div class="spec-row"><span class="spec-label">Eco Commitment</span><span class="spec-value">1% toward environmental initiatives</span></div>
+        <div class="spec-row"><span class="spec-label">Application Methods</span><span class="spec-value">Spray, soak, pressure wash</span></div>
+      </div>
+
+      <div class="product-cta-row">
+        <a href="tel:+19545681700" class="btn-order">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6 6l.9-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+          Order Max 25
+        </a>
+        <a href="tel:+19545681700" class="btn-call">(954) 568-1700</a>
+      </div>
+    </div>
+
+    <!-- Visual -->
+    <div class="product-visual" style="background:linear-gradient(135deg,#0a1f5c 0%,#0e3270 100%)">
+      <div class="product-visual-grid"></div>
+      <div class="product-visual-glow" style="background:radial-gradient(circle,rgba(14,165,233,.25) 0%,transparent 70%)"></div>
+      <div class="product-visual-inner">
+        <div class="product-badge-top">Micromass Series</div>
+        <div class="product-visual-name">Max 25</div>
+        <div class="product-visual-type">Heavy-Duty Degreaser</div>
+        <div class="dilution-display">
+          <div class="dilution-num">25:1</div>
+          <div class="dilution-label">Dilution Ratio</div>
+        </div>
+      </div>
+      <div class="product-number">25</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY CHOOSE -->
+<div class="why-section">
+  <div class="why-inner">
+    <div class="section-header">
+      <div class="section-label">Why Universal Solutions</div>
+      <h2>More Than a Product.<br>A Partnership.</h2>
+      <p>We've been doing this for 30 years. Here's what that means for your facility.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-card-num">01</div>
+        <h3>Unmatched Dilution Value</h3>
+        <p>Most industrial cleaners cap at 10:1. Our Max Series goes up to 25:1 — meaning one gallon goes up to 2.5x further than the competition. Your supply cost drops. Performance stays high.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">02</div>
+        <h3>30 Years of Proven Results</h3>
+        <p>Since the early 1990s, Universal Solutions has supplied maintenance products to hundreds of facilities across every major industry in the U.S. This isn't a startup. This is a track record.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">03</div>
+        <h3>Direct. No Phone Trees.</h3>
+        <p>Call us and a real person picks up. We know our products, we know your industry, and we're here to make your order right. That's the woman-owned difference — every customer matters.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARE TABLE -->
+<div class="compare-section">
+  <div class="compare-inner">
+    <div class="section-header">
+      <div class="section-label">Product Comparison</div>
+      <h2>Which Product Is Right<br>For Your Facility?</h2>
+      <p>Both products are part of the Micromass Concentrate Series. Here's how to choose.</p>
+    </div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Max 20</th>
+          <th class="max25-header">Max 25</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Best Use Case</td>
+          <td>General all-purpose cleaning</td>
+          <td>Heavy grease & oil removal</td>
+        </tr>
+        <tr>
+          <td>Max Dilution Ratio</td>
+          <td>20:1</td>
+          <td>25:1</td>
+        </tr>
+        <tr>
+          <td>Multi-Surface</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Cuts Heavy Grease</td>
+          <td>—</td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Pressure Wash Compatible</td>
+          <td>—</td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Eco Commitment</td>
+          <td>—</td>
+          <td><span class="check">1% to env. initiatives</span></td>
+        </tr>
+        <tr>
+          <td>Facilities / Janitorial</td>
+          <td><span class="check">✓ Ideal</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Manufacturing / Industrial</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓ Ideal</span></td>
+        </tr>
+        <tr>
+          <td>Non-Corrosive Formula</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- PULL QUOTE -->
+<div class="pullquote-section">
+  <div class="pullquote-inner">
+    <span class="quote-mark">"</span>
+    <blockquote>We begin with offering top quality products combined with unmatched customer service included with every order. With a 30-year history of providing a highly effective product line, Universal Solutions assures confidence, superior performance, and lasting customer satisfaction.</blockquote>
+    <div class="quote-source">Universal Solutions USA &nbsp;·&nbsp; <span>BBB Accredited · Woman-Owned</span></div>
+  </div>
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div>
+      <h2>Ready to Put the Max Series<br>to Work?</h2>
+      <p>Call us directly and talk to someone who knows these products inside and out. We'll make sure you get the right product in the right quantity for your facility's needs.</p>
+    </div>
+    <div class="cta-band-actions">
+      <a href="tel:+19545681700" class="cta-btn-white">Call (954) 568-1700 →</a>
+      <a href="/payments/" class="cta-btn-outline">Pay an Existing Invoice</a>
     </div>
   </div>
 </div>
@@ -223,20 +536,30 @@ footer{background:var(--navy);padding:60px clamp(20px,5vw,80px) 40px;border-top:
       <div class="footer-col">
         <h4>Navigation</h4>
         <a href="/">Home</a>
+        <a href="/about/">About</a>
         <a href="/products/">Products</a>
         <a href="/testimonials/">Testimonials</a>
+        <a href="/giving-back/">Giving Back</a>
         <a href="/payments/">Pay Invoice</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <p>(954) 568-1700</p>
-        <p>universalsolutionsusa.com</p>
-        <p style="margin-top:16px;color:var(--text-sec);font-size:12px">BBB Accredited Business</p>
+        <p style="margin-top:4px">Mon – Fri</p>
+        <p>8:30am – 4:00pm EST</p>
+        <p style="margin-top:12px">PO Box 590514</p>
+        <p>Tamarac, FL 33319</p>
+      </div>
+      <div class="footer-col">
+        <h4>Accreditation</h4>
+        <p>BBB Accredited Business</p>
+        <p style="margin-top:8px">Woman-Owned &amp; Operated</p>
+        <img src="/images/bbb-logo.png" alt="BBB Accredited Business" style="height:48px;margin-top:16px;opacity:.8">
       </div>
     </div>
     <div class="footer-bottom">
       <p>© 2026 Universal Solutions USA. All rights reserved.</p>
-      <p>Industrial Maintenance Supply</p>
+      <p>(954) 568-1700 · universalsolutionsusa.com · Woman-Owned &amp; BBB Accredited</p>
     </div>
   </div>
 </footer>
