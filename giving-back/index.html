@@ -21,8 +21,9 @@ nav{position:fixed;top:0;left:0;right:0;height:150px;background:var(--white);z-i
 .nav-links a.nav-cta{background:var(--blue);color:var(--white);padding:9px 24px;font-weight:600;margin-left:12px;letter-spacing:.3px;text-transform:none;font-size:14px}
 .nav-links a.nav-cta:hover{background:var(--blue-dark)}
 
-.page-header{padding-top:150px;background:var(--navy)}
-.page-header-inner{max-width:1300px;margin:0 auto;padding:80px clamp(20px,5vw,80px)}
+.page-header{padding-top:150px;background:var(--navy);position:relative;overflow:hidden}
+.page-header-bg{position:absolute;inset:0;background-image:url('/images/sustainability.png');background-size:cover;background-position:center;opacity:.2;-webkit-mask-image:radial-gradient(ellipse 85% 90% at 65% 50%,black 25%,transparent 100%);mask-image:radial-gradient(ellipse 85% 90% at 65% 50%,black 25%,transparent 100%)}
+.page-header-inner{max-width:1300px;margin:0 auto;padding:80px clamp(20px,5vw,80px);position:relative;z-index:1}
 .page-label{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
 .page-label::before{content:'';width:24px;height:2px;background:var(--blue)}
 .page-header h1{font-size:clamp(40px,5vw,72px);font-weight:900;color:var(--white);letter-spacing:-2px;line-height:1}
@@ -117,6 +118,7 @@ footer{background:var(--navy);padding:60px clamp(20px,5vw,80px) 40px;border-top:
 </nav>
 
 <div class="page-header">
+  <div class="page-header-bg"></div>
   <div class="page-header-inner">
     <div class="page-label">Sustainability & Community</div>
     <h1>Giving Back<br>with Every Order</h1>

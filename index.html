@@ -38,6 +38,7 @@ nav{position:fixed;top:0;left:0;right:0;height:150px;background:var(--white);z-i
 
 /* HERO */
 .hero{padding-top:150px;background:var(--light-blue);min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('/images/facility.png');background-size:cover;background-position:center;opacity:.18;-webkit-mask-image:radial-gradient(ellipse 90% 85% at 60% 50%,black 30%,transparent 100%);mask-image:radial-gradient(ellipse 90% 85% at 60% 50%,black 30%,transparent 100%)}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(10,31,92,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(10,31,92,.05) 1px,transparent 1px);background-size:60px 60px}
 .hero-inner{max-width:1300px;margin:0 auto;padding:100px clamp(20px,5vw,80px);position:relative;z-index:1}
 .hero-label{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px}
@@ -153,6 +154,7 @@ footer{background:var(--navy);padding:60px clamp(20px,5vw,80px) 40px;border-top:
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-inner">
     <div class="hero-label">Industrial Maintenance Supply</div>
