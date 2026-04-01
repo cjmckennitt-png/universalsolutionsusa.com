@@ -133,6 +133,104 @@ footer{background:var(--navy);padding:60px clamp(20px,5vw,80px) 40px;border-top:
   .trust{flex-direction:column;gap:20px;text-align:center}
   .footer-top{grid-template-columns:1fr}
 }
+
+/* ═══════════════════════════════════════════
+   MOBILE — shared across all pages
+═══════════════════════════════════════════ */
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px;z-index:200}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+@media(max-width:768px){
+  /* NAV */
+  nav{height:72px;padding:0 20px}
+  .nav-brand img{height:56px}
+  .nav-toggle{display:flex}
+  .nav-links{
+    display:none;flex-direction:column;gap:0;
+    position:fixed;top:72px;left:0;right:0;
+    background:var(--white);
+    border-bottom:2px solid var(--border);
+    z-index:150;
+    padding:8px 0 16px;
+    box-shadow:0 8px 24px rgba(10,31,92,.12)
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 24px;font-size:15px;border-bottom:1px solid var(--border);letter-spacing:0;text-transform:none}
+  .nav-links a:last-child{border-bottom:none}
+  .nav-links a.nav-cta{margin:8px 16px 0;text-align:center;padding:14px 24px}
+
+  /* SECTIONS */
+  section{padding:60px 20px}
+  .section-inner{padding:0}
+
+  /* FOOTER */
+  .footer-top{grid-template-columns:1fr!important;gap:36px}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+
+  /* GENERIC grids → single col */
+  .about-grid,.products-grid,.mission-grid,.dept-grid,
+  .commitment-grid,.impact-inner,.woman-owned-inner,
+  .eco-featured,.initiatives-grid,.steps,.stats-inner,
+  .cta-band-inner{grid-template-columns:1fr!important;direction:ltr!important}
+
+  .intro-band-inner{grid-template-columns:1fr!important;gap:28px}
+  .intro-band-item{border-right:none!important;padding:0!important;text-align:left!important}
+
+  /* TRUST BAR */
+  .trust{flex-direction:column;gap:16px;padding:24px 20px;text-align:center}
+
+  /* HERO */
+  .hero{padding-top:72px;min-height:auto}
+  .hero-inner{padding:56px 20px 48px}
+  .hero-stats{flex-direction:column;gap:0}
+  .hero-stat{border-right:none;border-bottom:1px solid var(--border);padding:18px 0}
+
+  /* HERO BTNS */
+  .hero-btns{flex-direction:column;gap:2px}
+  .hero-btns .btn{text-align:center;justify-content:center}
+
+  /* PAGE HEADERS */
+  .page-header{padding-top:72px}
+  .page-header-inner{padding:48px 20px 0}
+
+  /* STAT BAR */
+  .stat-bar-inner{grid-template-columns:1fr 1fr!important}
+  .header-stats{flex-direction:column;gap:24px}
+
+  /* CARDS */
+  .dept-grid{grid-template-columns:1fr 1fr!important}
+  .industries-grid{grid-template-columns:1fr!important}
+  .why-grid{grid-template-columns:1fr!important}
+  .stats-inner{grid-template-columns:1fr 1fr!important}
+  .testimonials-grid{grid-template-columns:1fr!important}
+
+  /* ECO FEATURED */
+  .eco-image{min-height:240px!important}
+  .eco-image img{-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 15%,black 85%,transparent 100%)!important;mask-image:linear-gradient(to bottom,transparent 0%,black 15%,black 85%,transparent 100%)!important}
+
+  /* PAY PAGE */
+  .pay-page{grid-template-columns:1fr!important;padding:100px 20px 60px}
+
+  /* PROMO / IMPACT */
+  .promo-inner{grid-template-columns:1fr!important}
+
+  /* CTA BAND */
+  .cta-band{padding:60px 20px}
+  .cta-band-inner{grid-template-columns:1fr!important}
+  .cta-band-actions{flex-direction:column;gap:8px}
+
+  /* FEATURED QUOTE */
+  .featured-inner{grid-template-columns:1fr!important}
+  .featured-mark{display:none}
+
+  /* COMPARE TABLE */
+  .compare-table{font-size:12px}
+  .compare-table th,.compare-table td{padding:12px 10px}
+}
+
 </style>
 </head>
 <body>
@@ -149,6 +247,9 @@ footer{background:var(--navy);padding:60px clamp(20px,5vw,80px) 40px;border-top:
     <a href="/giving-back/">Giving Back</a>
     <a href="/payments/" class="nav-cta">Pay Invoice</a>
   </div>
+  <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
