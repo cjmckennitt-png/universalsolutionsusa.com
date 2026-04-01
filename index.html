@@ -27,9 +27,9 @@ html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--pale-blue);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;height:70px;background:var(--white);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,80px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;height:150px;background:var(--white);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,80px);border-bottom:1px solid var(--border)}
 .nav-brand{display:flex;align-items:center;text-decoration:none}
-.nav-brand img{height:70px;width:auto;}
+.nav-brand img{height:140px;width:auto;}
 .nav-links{display:flex;gap:0;align-items:center}
 .nav-links a{font-size:13px;font-weight:500;color:var(--text-sec);text-decoration:none;padding:8px 18px;letter-spacing:.5px;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--navy)}
@@ -37,7 +37,7 @@ nav{position:fixed;top:0;left:0;right:0;height:70px;background:var(--white);z-in
 .nav-links a.nav-cta:hover{background:var(--blue-dark)}
 
 /* HERO */
-.hero{padding-top:70px;background:var(--light-blue);min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero{padding-top:150px;background:var(--light-blue);min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(10,31,92,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(10,31,92,.05) 1px,transparent 1px);background-size:60px 60px}
 .hero-inner{max-width:1300px;margin:0 auto;padding:100px clamp(20px,5vw,80px);position:relative;z-index:1}
 .hero-label{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px}
